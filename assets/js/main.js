@@ -188,6 +188,61 @@ if(window.innerWidth <= 768){
   document.querySelectorAll(selectors).forEach(el => mio.observe(el));
 }
 
+
+// ── Advanced Autocomplete for College & City ──
+document.addEventListener('DOMContentLoaded', () => {
+  const collegeInput = document.getElementById('collegeInput');
+  const collegeList = document.getElementById('collegeList');
+  
+  if (collegeInput && collegeList) {
+    const indianColleges = [
+      "St Josephs College of Engineering", "St Josephs Institute of Technology", "IIT Madras", "IIT Bombay", "IIT Delhi", "IIT Kanpur", "IIT Kharagpur", "IIT Roorkee", "IIT Guwahati", "IIT Hyderabad",
+      "NIT Trichy", "NIT Surathkal", "NIT Warangal", "NIT Calicut", "NIT Rourkela", "Anna University", "SRM Institute of Science and Technology", "VIT Vellore", "VIT Chennai", "BITS Pilani", "BITS Goa", "BITS Hyderabad",
+      "PSG College of Technology", "SSN College of Engineering", "Madras Institute of Technology", "CEG Guindy", "Sathyabama Institute of Science and Technology", "Hindustan Institute of Technology and Science",
+      "Rajalakshmi Engineering College", "Sri Venkateswara College of Engineering", "RMK Engineering College", "RMD Engineering College", "Easwari Engineering College", "Meenakshi Sundararajan Engineering College",
+      "Kumaraguru College of Technology", "Sri Krishna College of Engineering and Technology", "Bannari Amman Institute of Technology", "Kongu Engineering College", "Thiagarajar College of Engineering",
+      "SASTRA University", "Amrita Vishwa Vidyapeetham", "Karunya Institute of Technology and Sciences", "Manipal Institute of Technology", "RV College of Engineering", "BMS College of Engineering",
+      "Ramaiah Institute of Technology", "PES University", "Delhi Technological University", "NSUT Delhi", "IIIT Hyderabad", "IIIT Bangalore", "IIIT Delhi", "IIIT Allahabad", "IIIT Kancheepuram",
+      "Jadavpur University", "VJTI Mumbai", "College of Engineering Pune", "Thapar Institute of Engineering and Technology", "Kalinga Institute of Industrial Technology", "Siksha O Anusandhan",
+      "Loyola College", "Madras Christian College", "Stella Maris College", "Ethiraj College for Women", "Women's Christian College", "Presidency College", "Pachaiyappa's College", "DG Vaishnav College"
+    ];
+    
+    collegeInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      collegeList.innerHTML = '';
+      if (!query) return;
+      
+      const filtered = indianColleges.filter(col => col.toLowerCase().includes(query)).slice(0, 15);
+      filtered.forEach(col => {
+        const opt = document.createElement('option');
+        opt.value = col;
+        collegeList.appendChild(opt);
+      });
+    });
+  }
+
+  const cityInput = document.querySelector('input[name="city"]');
+  const cityList = document.getElementById('cityList');
+  if (cityInput && cityList) {
+    const indianCities = [
+      "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara", "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Ranchi", "Howrah", "Coimbatore", "Jabalpur", "Gwalior", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Guwahati", "Chandigarh", "Solapur", "Hubli-Dharwad", "Bareilly", "Moradabad", "Mysore", "Gurgaon", "Aligarh", "Jalandhar", "Tiruchirappalli", "Bhubaneswar", "Salem", "Mira-Bhayandar", "Thiruvananthapuram", "Bhiwandi", "Saharanpur", "Guntur", "Amravati", "Bikaner", "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur", "Asansol", "Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola", "Gulbarga", "Jamnagar", "Ujjain", "Loni", "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Mangalore", "Erode", "Belgaum", "Ambattur", "Tirunelveli", "Malegaon", "Gaya", "Jalgaon", "Udaipur", "Maheshtala", "Davanagere", "Kozhikode", "Akbarpur"
+    ];
+    
+    cityInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      cityList.innerHTML = '';
+      if (!query) return;
+      
+      const filtered = indianCities.filter(city => city.toLowerCase().includes(query)).slice(0, 15);
+      filtered.forEach(city => {
+        const opt = document.createElement('option');
+        opt.value = city;
+        cityList.appendChild(opt);
+      });
+    });
+  }
+});
+
 // Registration Form & Floating Button Logic
 document.addEventListener('DOMContentLoaded', () => {
   const floatBtn = document.getElementById('floatingRegisterBtn');
@@ -234,6 +289,143 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fallback UI just in case of actual network failure
         form.style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block'; 
+      });
+    });
+  }
+});
+
+// ── Ugham Award Form Logic ──
+document.addEventListener('DOMContentLoaded', () => {
+  const awardForm = document.getElementById('ughamAwardForm');
+  if (awardForm) {
+    const teamSizeSelect = document.getElementById('teamSizeSelect');
+    const membersContainer = document.getElementById('dynamicMembersContainer');
+    const categoryRadios = document.querySelectorAll('input[name="category"]');
+    const totalAmountDisplay = document.getElementById('totalAmountDisplay');
+    const totalAmountInput = document.getElementById('totalAmountInput');
+
+    function calculateTotal() {
+      let teamSize = parseInt(teamSizeSelect.value) || 0;
+      let price = 0;
+      categoryRadios.forEach(r => { if (r.checked) price = parseInt(r.getAttribute('data-price')); });
+      
+      if (teamSize > 0 && price > 0) {
+        const total = teamSize * price;
+        totalAmountDisplay.textContent = `₹${total}`;
+        totalAmountInput.value = total;
+      } else {
+        totalAmountDisplay.textContent = `₹0`;
+        totalAmountInput.value = 0;
+      }
+    }
+
+    teamSizeSelect.addEventListener('change', (e) => {
+      calculateTotal();
+      const count = parseInt(e.target.value);
+      membersContainer.innerHTML = '';
+      
+      // We already have the leader details in the form. So we just need member 2 to count.
+      for (let i = 2; i <= count; i++) {
+        const memHtml = `
+          <div class="member-block" style="background:rgba(255,255,255,0.02); padding:20px; border-radius:12px; margin-bottom:16px; border:1px solid var(--border);">
+            <h4 style="margin-bottom:16px; color:var(--primary);">Member ${i} Details</h4>
+            <div class="grid-3" style="gap:16px;">
+              <div class="form-group" style="margin-bottom:0;"><input type="text" name="member_${i}_name" required placeholder="Name"></div>
+              <div class="form-group" style="margin-bottom:0;"><input type="tel" name="member_${i}_phone" required placeholder="Phone"></div>
+              <div class="form-group" style="margin-bottom:0;"><input type="email" name="member_${i}_email" required placeholder="Email"></div>
+            </div>
+          </div>
+        `;
+        membersContainer.insertAdjacentHTML('beforeend', memHtml);
+      }
+    });
+
+    categoryRadios.forEach(r => r.addEventListener('change', calculateTotal));
+
+    // Form Submission
+    awardForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = awardForm.querySelector('button[type="submit"]');
+      btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
+      btn.disabled = true;
+
+      // SCRIPT_URL from contact.html logic
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTIk7_bfbH3OETWd-KEQgWlYxd3DrS7-nmFSG4zCDuSdAXxDrZijmA8HrulgjW8Z0cFA/exec';
+      const formData = new FormData(awardForm);
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      }).then(() => {
+        awardForm.style.display = 'none';
+        document.getElementById('awardFormSuccess').style.display = 'block';
+        // Hide success message and act like payment gateway opened after 3s
+        setTimeout(() => {
+          document.getElementById('awardFormSuccess').innerHTML = `
+            <i class="fa-solid fa-lock" style="font-size:48px; color:var(--primary); margin-bottom:20px;"></i>
+            <h3>Secure Payment Gateway</h3>
+            <p style="color:var(--muted); margin-top:12px;">Waiting for external payment provider...</p>
+          `;
+        }, 2000);
+      }).catch(err => {
+        console.error(err);
+        awardForm.style.display = 'none';
+        document.getElementById('awardFormSuccess').style.display = 'block';
+      });
+    });
+  }
+});
+
+
+// ── Advanced Autocomplete for College & City ──
+document.addEventListener('DOMContentLoaded', () => {
+  const collegeInput = document.getElementById('collegeInput');
+  const collegeList = document.getElementById('collegeList');
+  
+  if (collegeInput && collegeList) {
+    let debounceTimer;
+    collegeInput.addEventListener('input', (e) => {
+      clearTimeout(debounceTimer);
+      const query = e.target.value.trim();
+      if (query.length < 3) return; // wait for 3 chars
+      
+      debounceTimer = setTimeout(() => {
+        fetch(`http://universities.hipolabs.com/search?country=India&name=${encodeURIComponent(query)}`)
+          .then(res => res.json())
+          .then(data => {
+            collegeList.innerHTML = '';
+            // Get unique names, max 10
+            const unique = [...new Set(data.map(item => item.name))].slice(0, 10);
+            unique.forEach(name => {
+              const opt = document.createElement('option');
+              opt.value = name;
+              collegeList.appendChild(opt);
+            });
+          })
+          .catch(err => console.error('College API Error:', err));
+      }, 500); // 500ms debounce
+    });
+  }
+
+  const cityInput = document.querySelector('input[name="city"]');
+  const cityList = document.getElementById('cityList');
+  if (cityInput && cityList) {
+    // Top ~100 Indian Cities
+    const indianCities = [
+      "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara", "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Ranchi", "Howrah", "Coimbatore", "Jabalpur", "Gwalior", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Guwahati", "Chandigarh", "Solapur", "Hubli-Dharwad", "Bareilly", "Moradabad", "Mysore", "Gurgaon", "Aligarh", "Jalandhar", "Tiruchirappalli", "Bhubaneswar", "Salem", "Mira-Bhayandar", "Thiruvananthapuram", "Bhiwandi", "Saharanpur", "Guntur", "Amravati", "Bikaner", "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur", "Asansol", "Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola", "Gulbarga", "Jamnagar", "Ujjain", "Loni", "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Sangli-Miraj & Kupwad", "Mangalore", "Erode", "Belgaum", "Ambattur", "Tirunelveli", "Malegaon", "Gaya", "Jalgaon", "Udaipur", "Maheshtala", "Davanagere", "Kozhikode", "Akbarpur"
+    ];
+    
+    cityInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      cityList.innerHTML = '';
+      if (!query) return;
+      
+      const filtered = indianCities.filter(city => city.toLowerCase().includes(query)).slice(0, 10);
+      filtered.forEach(city => {
+        const opt = document.createElement('option');
+        opt.value = city;
+        cityList.appendChild(opt);
       });
     });
   }

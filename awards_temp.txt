@@ -2,7 +2,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UGHAM INNOVATION AWARDS 2026 &mdash; Ugham</title>
 <meta name="description" content="National Awards for Student Innovation — Empowering the Next Generation of Innovators.">
-<link rel="stylesheet" href="assets/css/style.css?v=344">
+<link rel="stylesheet" href="assets/css/style.css?v=115">
 </head><body>
 <div id="page-transition" class="page-transition-overlay"></div>
 <canvas id="realStars"></canvas>
@@ -238,7 +238,7 @@
 </section>
 
 <!-- PARTNER ECOSYSTEM SECTION -->
-<div class="ecosystem-section" style="padding: 80px 0 0;">
+<div class="ecosystem-section" style="padding: 80px 0 100px;">
   <div class="container">
     <div class="ecosystem-header">
       <h2 class="section-title partner-title-glow" style="font-size: clamp(32px, 5vw, 48px); margin-bottom: 20px;">OUR PARTNERS</h2>
@@ -280,194 +280,18 @@
 </div>
 
 
-
-
-
-
-<!-- FLOATING REGISTER BTN -->
-<a href="#registration-form" id="floatingRegisterBtn" class="floating-btn">
-  Register Now <i class="fa-solid fa-arrow-down fa-bounce"></i>
-</a>
-
-<!-- REGISTRATION FORM SECTION -->
-<section id="registration-form" style="padding:100px 0; background:var(--bg); position:relative;">
-  <div class="glow-orb" style="top:10%; left:5%; width:300px; height:300px; background:rgba(124,58,237,0.1); filter:blur(80px); position:absolute;"></div>
-  <div class="glow-orb" style="bottom:10%; right:5%; width:400px; height:400px; background:rgba(192,38,211,0.1); filter:blur(100px); position:absolute;"></div>
-  
-  <div class="container" style="position:relative; z-index:1; max-width:850px;">
-    <div class="form-container anim-el fade-up" style="background:var(--surface); padding:50px; border-radius:24px; border:1px solid var(--border); box-shadow:0 30px 60px rgba(0,0,0,0.3);">
-      
-      <div style="text-align:center; margin-bottom:40px;">
-        <h2 style="font-size:clamp(24px, 4vw, 32px); margin-bottom:16px; background:var(--grad-text); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">JOIN THE UGHAM INNOVATION AWARD 2026</h2>
-        <p style="color:var(--muted); font-size:18px;">Register for Idea Pitch & Prototype Pitch below</p>
-      </div>
-
-      <form id="ughamAwardForm" class="ugham-form">
-        <!-- Institution & Team -->
-        <div class="form-group">
-          <label>College / Institution Name</label>
-          <input type="text" name="college" id="collegeInput" list="collegeList" required placeholder="Type to search your college...">
-          <datalist id="collegeList">
-            <option value="IIT Madras">
-            <option value="IIT Bombay">
-            <option value="IIT Delhi">
-            <option value="NIT Trichy">
-            <option value="Anna University">
-            <option value="SRM Institute of Science and Technology">
-            <option value="VIT Vellore">
-            <option value="BITS Pilani">
-            <option value="PSG College of Technology">
-            <option value="SSN College of Engineering">
-            <option value="Madras Institute of Technology">
-          </datalist>
-        </div>
-
-        <div class="grid-2" style="gap:24px; margin-bottom:0;">
-          <div class="form-group">
-            <label>Team Name</label>
-            <input type="text" name="team_name" required placeholder="Enter team name">
-          </div>
-          <div class="form-group">
-            <label>Team Leader Full Name</label>
-            <input type="text" name="leader_name" required placeholder="Enter leader name">
-          </div>
-        </div>
-
-        <div class="grid-2" style="gap:24px; margin-bottom:0;">
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" name="email" required placeholder="Leader email address">
-          </div>
-          <div class="form-group">
-            <label>Phone Number (WhatsApp)</label>
-            <input type="tel" name="phone" required placeholder="Leader WhatsApp number">
-          </div>
-        </div>
-
-        <div class="grid-2" style="gap:24px; margin-bottom:0;">
-          <div class="form-group">
-            <label>Department / Course</label>
-            <input type="text" name="department" required placeholder="E.g., B.Tech CSE">
-          </div>
-          <div class="form-group">
-            <label>Year of Study</label>
-            <select name="year_of_study" required style="width:100%; padding:14px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px; color:var(--text); font-family:inherit;">
-              <option value="" disabled selected>Select Year</option>
-              <option value="1st Year">1st Year</option>
-              <option value="2nd Year">2nd Year</option>
-              <option value="3rd Year">3rd Year</option>
-              <option value="Final Year">Final Year</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>City</label>
-          <input type="text" name="city" list="cityList" required placeholder="Type your city...">
-          <datalist id="cityList">
-            <option value="Chennai">
-            <option value="Coimbatore">
-            <option value="Bangalore">
-            <option value="Hyderabad">
-            <option value="Mumbai">
-            <option value="Delhi">
-            <option value="Pune">
-            <option value="Madurai">
-            <option value="Trichy">
-            <option value="Salem">
-          </datalist>
-        </div>
-
-        <hr style="border:0; height:1px; background:var(--border); margin:32px 0;">
-
-        <!-- Project Details -->
-        <div class="form-group">
-          <label>Title of Idea / Project</label>
-          <input type="text" name="project_title" required placeholder="What are you building?">
-        </div>
-
-        <div class="form-group">
-          <label>Participation Category</label>
-          <div class="category-cards">
-            <label class="cat-card">
-              <input type="radio" name="category" value="Idea Pitch" data-price="249" required>
-              <div class="cat-card-inner">
-                <i class="fa-solid fa-lightbulb" style="font-size:24px; color:#c026d3; margin-bottom:12px;"></i>
-                <h4>Idea Pitch</h4>
-                <p>Idea Stage</p>
-                <div class="price">₹249 <span>/ member</span></div>
-              </div>
-            </label>
-            <label class="cat-card">
-              <input type="radio" name="category" value="Prototype Pitch" data-price="299" required>
-              <div class="cat-card-inner">
-                <i class="fa-solid fa-microchip" style="font-size:24px; color:#7c3aed; margin-bottom:12px;"></i>
-                <h4>Prototype Pitch</h4>
-                <p>Working Model / MVP</p>
-                <div class="price">₹299 <span>/ member</span></div>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <hr style="border:0; height:1px; background:var(--border); margin:32px 0;">
-
-        <!-- Team Members -->
-        <div class="form-group">
-          <label>Number of Team Members (Including Leader)</label>
-          <select id="teamSizeSelect" name="team_size" required style="width:100%; padding:14px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px; color:var(--text); font-family:inherit;">
-            <option value="" disabled selected>Select Team Size</option>
-            <option value="1">1 Member (Solo)</option>
-            <option value="2">2 Members</option>
-            <option value="3">3 Members</option>
-            <option value="4">4 Members</option>
-            <option value="5">5 Members</option>
-          </select>
-        </div>
-
-        <div id="dynamicMembersContainer"></div>
-
-        <hr style="border:0; height:1px; background:var(--border); margin:32px 0;">
-
-        <!-- Payment Calculation -->
-        <div class="grid-2" style="gap:24px; margin-bottom:0; align-items:end;">
-          <div class="form-group">
-            <label>Coupon Code (Optional)</label>
-            <input type="text" name="coupon" placeholder="Enter code">
-          </div>
-          <div class="form-group" style="background:rgba(124,58,237,0.1); padding:20px; border-radius:12px; border:1px solid rgba(124,58,237,0.3); text-align:right;">
-            <p style="color:var(--muted); font-size:14px; margin-bottom:4px;">Total Amount Payable</p>
-            <h3 id="totalAmountDisplay" style="font-size:28px; color:white;">₹0</h3>
-            <input type="hidden" name="total_amount" id="totalAmountInput" value="0">
-          </div>
-        </div>
-
-        <button type="submit" class="btn-primary" style="width:100%; margin-top:24px; padding:18px; font-size:18px;">Submit & Next &#8250;</button>
-      </form>
-
-      <!-- SUCCESS MESSAGE -->
-      <div id="awardFormSuccess" style="display:none; text-align:center; padding:40px 0;">
-        <i class="fa-regular fa-circle-check" style="font-size:64px; color:#10b981; margin-bottom:20px;"></i>
-        <h3>Registration Saved!</h3>
-        <p style="color:var(--muted); margin-top:12px; margin-bottom:24px;">Proceeding to payment gateway...</p>
-        <div class="spinner"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT CTA STRIP -->
 <div class="cta-contact-strip" style="background:var(--grad);padding:60px 0;text-align:center;position:relative;overflow:hidden;">
   <div class="cta-glow-orb" style="position:absolute;top:-50px;left:20%;width:200px;height:200px;background:rgba(255,255,255,0.08);border-radius:50%;"></div>
   <div class="cta-glow-orb" style="position:absolute;bottom:-50px;right:15%;width:150px;height:150px;background:rgba(255,255,255,0.06);border-radius:50%;"></div>
   <div class="container" style="position:relative;z-index:1;">
-    <h3 style="color:white;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;font-family:'Outfit',sans-serif;">Any Queries? Contact Us!</h3>
-    <p style="color:rgba(255,255,255,0.85);font-size:18px;margin-bottom:30px;">We are here to help. Get in touch with our team today.</p>
+    <h3 style="color:white;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;font-family:'Outfit',sans-serif;">Ready to Start Your Innovation Journey?</h3>
+    <p style="color:rgba(255,255,255,0.85);font-size:18px;margin-bottom:30px;">Connect with Ugham and turn your ideas into reality.</p>
     <a href="contact.html" class="btn-primary" style="background:white;color:var(--primary);font-weight:800;padding:18px 40px;font-size:16px;box-shadow:0 10px 30px rgba(0,0,0,0.2);">Contact Us &#8250;</a>
   </div>
 </div>
 
-<footer style="background:var(--bg);padding:20px 0 30px;border-top:1px solid var(--border);position:relative;">
+<footer style="background:var(--bg);padding:60px 0 30px;border-top:1px solid var(--border);position:relative;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="grid-4" style="margin-bottom:40px;">
       <div><a href="index.html" style="display:inline-block;text-decoration:none;"><img src="assets/img/logo.png" alt="Ugham" style="height:80px;margin-bottom:16px;object-fit:contain;"></a><p style="color:var(--muted);font-size:14px;">Where Evolution Starts.<br>Learn. Build. Grow.</p></div>
@@ -478,7 +302,7 @@
     <div style="border-top:1px solid var(--border);padding-top:20px;text-align:center;color:var(--muted);font-size:13px;"><p>&copy; 2026 Ugham Innovation Studio. All rights reserved.</p></div>
   </div>
 </footer>
-<script src="assets/js/main.js?v=344"></script>
+<script src="assets/js/main.js?v=115"></script>
 <script>
 // Spotlight mouse tracking
 function moveSpot(e, el) {
@@ -600,4 +424,3 @@ rc.beginPath();rc.arc(s.x,s.y,s.s*2,0,Math.PI*2);
 rc.fillStyle=`rgba(200,180,255,${s.a*0.15})`;rc.fill()});
 requestAnimationFrame(drs)}drs()}
 </script>
-</body></html>
